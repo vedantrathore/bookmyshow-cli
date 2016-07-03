@@ -1,10 +1,14 @@
 from src.movieList import  getMovie
+import argparse
 
-#location=raw_input("Enter the location :")
-location="Kota"
+parser=argparse.ArgumentParser(description='Get details about all movies')
+parser.add_argument("location",help="The city you want movies for")
+args=parser.parse_args()
+
+location=args.location
 location=location.replace(" ", "-").lower()
-print location
+
 website="https://in.bookmyshow.com/"+location+"/movies"
 movies=getMovie(website);
-print movies['moviesData']['BookMyShow']['arrEvents'][0]['EventTitle']
 
+print movies['moviesData']['BookMyShow']['arrEvents'][2]['EventTitle']
