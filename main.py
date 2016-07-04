@@ -1,4 +1,4 @@
-from src.movieList import  getMovie
+from src.data import  getMovie
 import argparse
 
 parser=argparse.ArgumentParser(description='Get details about all movies')
