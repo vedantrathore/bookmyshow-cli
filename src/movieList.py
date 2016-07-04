@@ -14,6 +14,7 @@ def getMovieList():
 			'Genre':data['moviesData']['BookMyShow']['arrEvents'][i]['EventGrpGenre'],
 			'Censor':data['moviesData']['BookMyShow']['arrEvents'][i]['EventGrpCensor']	
 		}
+		movies['id']=i+1
 		movies['Extra']=[]
 		if numberOfChildEvents(i)>0:
 			for j in range(1,numberOfChildEvents(i)+1):
