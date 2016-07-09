@@ -1,7 +1,8 @@
 from urllib2 import Request, build_opener, HTTPCookieProcessor, HTTPHandler
 import cookielib,requests
 
-def get_cookies(website):
+def get_cookies(location):
+	website="https://in.bookmyshow.com/"+location+"/movies"
 	cj=cookielib.CookieJar()
 	opener=build_opener(HTTPCookieProcessor(cj),HTTPHandler)
 	req=Request(website)

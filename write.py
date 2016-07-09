@@ -21,7 +21,7 @@ def write_movie_header():
 
 def write_movie(location):
 	write_movie_header()
-	for index,movie in enumerate(get_movie_list(location)):
+	for index,movie in enumerate(get_final_list(location)):
 		name=movie['Title'].encode('utf-8')
 		genres=movie['Genre'].split("|")
 		extra=movie['Extra']
@@ -50,4 +50,5 @@ def write_movie(location):
 		click.echo()
 
 if __name__ == '__main__':
-	write_movie()
+	location="kota"
+	write_movie(location)
