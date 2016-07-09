@@ -7,5 +7,5 @@ Usage:
 ```
 $ git clone https://github.com/vedantrathore/bookmyshow-cli.git
 $ cd bookmyshow-cli/
-$ python main.py
+$ python cli.py
 ```
