@@ -19,9 +19,10 @@ def write_movie_header():
 	click.secho(" %-3s  %-40s   %-30s %-10s %-15s" % 
 	("ID", "NAME", "GENRE", "3D","DURATION"))
 
-def write_movie(location):
+def write_movie_list(location):
 	write_movie_header()
-	for index,movie in enumerate(get_final_list(location)):
+	movie_list=get_final_list(location)
+	for index,movie in enumerate(movie_list):
 		name=movie['Title'].encode('utf-8')
 		genres=movie['Genre'].split("|")
 		extra=movie['Extra']
@@ -48,7 +49,8 @@ def write_movie(location):
 		
 		click.secho(" %-5s"%duration,nl=False,bold=True)
 		click.echo()
+	return movie_list
 
 if __name__ == '__main__':
 	location="kota"
-	write_movie(location)
+	write_movie_list(location)
