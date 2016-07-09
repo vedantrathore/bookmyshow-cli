@@ -19,9 +19,9 @@ def write_movie_header():
 	click.secho(" %-3s  %-40s   %-30s %-10s %-15s" % 
 	("ID", "NAME", "GENRE", "3D","DURATION"))
 
-def write_movie():
+def write_movie(location):
 	write_movie_header()
-	for index,movie in enumerate(get_movie_list()):
+	for index,movie in enumerate(get_movie_list(location)):
 		name=movie['Title'].encode('utf-8')
 		genres=movie['Genre'].split("|")
 		extra=movie['Extra']
