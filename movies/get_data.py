@@ -13,9 +13,10 @@ def get_movie_data(location):
 	return data
 
 def attach_movie_url(location):
-	website="https://in.bookmyshow.com/"+location+"/movies"
+	website="https://in.bookmyshow.com"
+	website_with_location="https://in.bookmyshow.com/"+location+"/movies"
 	cookies=get_cookies(location)
-	response=requests.get(website)
+	response=requests.get(website_with_location)
 	response.raise_for_status()
 	soup=BeautifulSoup(response.text,'html.parser')
 	mlist=get_movie_list(location)
