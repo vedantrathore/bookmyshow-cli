@@ -12,7 +12,10 @@ def main():
 	if input_movie_id == -1:
 		sys.exit()
 	movie_details=get_movie_details(movie_list[input_movie_id-1])
-	pprint(movie_details)
+	write_movie(movie_details)
+	# book=int(raw_input("\nEnter a movie ID to Book Movie or -1 to exit : "))
+	# if book == -1:
+	# 	sys.exit()
 
 if __name__ == '__main__':
 	main()

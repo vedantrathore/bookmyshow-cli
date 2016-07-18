@@ -13,7 +13,6 @@ def get_movie_details(movie):
 	synopsis=str(' '.join(synopsis))
 	synopsis=synopsis.strip(' \t\n')
 	critic_rating=soup.findAll('span',{'class':'__rating'})[0].ul.attrs['data-value']
-	users_rating=soup.findAll('span',{'class':'__rating'})[1].ul.attrs['data-value']
 	trailer_code=soup.findAll('div',{'class':'banner-main synopsis-banner'})[0].attrs['data-trailer-code']
 	trailer_url="www.youtube.com/watch?v="+trailer_code
 	cast_list=soup.findAll('span',{'itemprop':'actor'})
@@ -25,7 +24,6 @@ def get_movie_details(movie):
 		'name': name,
 		'synopsis' : synopsis,
 		'critic_rating' : critic_rating,
-		'users_rating' : users_rating,
 		'trailer-url': trailer_url,
 		'lead_cast': cast[0:4]
 	}

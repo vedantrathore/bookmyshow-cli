@@ -1,4 +1,5 @@
 import click,sys
+import textwrap
 from movies.get_data import *
 
 def colors():
@@ -6,7 +7,9 @@ def colors():
 	enums = dict(
 		#TIME_LEFT="red",
 		name="yellow",
+		title="magenta",
 		genre="green",
+		synopsis="cyan",
 		duration="blue",
 		dimension="red"
 	)
@@ -51,9 +54,36 @@ def write_movie_list(location):
 	return movie_list
 
 
-def write_movie():
-	pass
+def write_movie(movie):
+	click.echo()
+	name=movie['name']
+	critic_rating=movie['critic_rating']
+	cast=movie['lead_cast']
+	synopsis="\033[35m"+movie['synopsis']
+	trailer=movie['trailer-url']
+	click.secho("   Name     :  ",nl=False,fg=colors().synopsis)
+	click.secho(" %-30s"%name,bold=True,fg=colors().duration)
+	prefix="   Synopsis :   "
+	preferredWidth=70
+	wrapper = textwrap.TextWrapper(initial_indent=prefix, width=preferredWidth,subsequent_indent=' '*len(prefix))
+	click.secho(wrapper.fill(synopsis),fg=colors().synopsis)
+	click.secho("   Cast     :   ",nl=False,fg=colors().synopsis)
+	cast_names=", ".join(cast)
+	click.secho(cast_names,fg=colors().genre)
+	click.secho("   Rating   :   ",nl=False,fg=colors().synopsis)
+	click.secho(critic_rating)
+	click.secho("   Trailer  :   ",nl=False,fg=colors().synopsis)
+	click.secho(trailer,fg=colors().name)
+	click.echo()
 
 if __name__ == '__main__':
 	location="kota"
-	write_movie_list(location)
+	movie={'critic_rating': u'2.5',
+ 'lead_cast': [u'Riteish Deshmukh',
+			   u'Vivek Oberoi',
+			   u'Aftab Shivdasani',
+			   u'Urvashi Rautela'],
+ 'name': u'Great Grand Masti',
+ 'synopsis': 'Great Grand Masti is the third film in the Masti trilogy. The  Adult Comedy  stars the terrific trio of - Riteish Deshmukh, Aftab Shivdasani and Vivek Oberoi.  They meet Ragini (Urvashi Rautela) in a village. The movie revolves around how the trio find out that Ragini is not the hot girl she appears at first.',
+ 'trailer-url': u'www.youtube.com/watch?v=ZojV0FC-KdI'}
+	write_movie(movie)
