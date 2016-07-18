@@ -18,7 +18,7 @@ def colors():
 
 def write_movie_list_header():
 	sys.stdout.write("\x1b[8;{rows};{cols}t".format(rows=40, cols=110))
-	click.secho(" %-3s  %-40s   %-30s %-10s %-15s" % 
+	click.secho("\n %-3s  %-40s   %-30s %-10s %-15s" % 
 	("ID", "NAME", "GENRE", "3D","DURATION"))
 
 def write_movie_list(location):

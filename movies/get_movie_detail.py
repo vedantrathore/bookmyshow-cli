@@ -20,17 +20,21 @@ def get_movie_details(movie):
 	for cast_member in cast_list:
 		cast_name=cast_member.a.div.attrs['content']
 		cast.append(cast_name)
+	booking_url_code=soup.findAll('div',{'class':'more-showtimes'})[0].a.attrs['href']
+	booking_url="https://in.bookmyshow.com"+booking_url_code
 	movie_detail={
 		'name': name,
 		'synopsis' : synopsis,
 		'critic_rating' : critic_rating,
 		'trailer-url': trailer_url,
-		'lead_cast': cast[0:4]
+		'lead_cast': cast[0:4],
+		'booking_url': booking_url 
 	}
 	return movie_detail
 
 if __name__ == '__main__':
 	location="kota"
 	mlist=get_final_list(location)
+	pprint(mlist[0])
 	details=get_movie_details(mlist[0])
 	pprint(details)
