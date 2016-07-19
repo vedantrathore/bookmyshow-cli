@@ -1,7 +1,5 @@
-import click,sys
-from movies import *
-from write import *
-from pprint import pprint
+import sys
+from write import write_movie_list,write_movie
 from movies.get_movie_detail import get_movie_details
 import webbrowser
 

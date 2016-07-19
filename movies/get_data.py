@@ -1,6 +1,5 @@
 from get_cookies import get_cookies
 import json,requests
-from pprint import pprint
 from bs4 import BeautifulSoup
 
 def get_movie_data(location):
@@ -72,6 +71,7 @@ def get_final_list(location):
 	return attach_movie_url(location)
 
 if __name__ == '__main__':
+	from pprint import pprint
 	location="kota"
 	website="https://in.bookmyshow.com/"+location+"/movies"
 	pprint(get_final_list(location))

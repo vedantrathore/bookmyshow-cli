@@ -1,6 +1,6 @@
 import click,sys
 import textwrap
-from movies.get_data import *
+from movies.get_data import get_final_list
 
 def colors():
 	"""Creates an enum for colors"""
@@ -77,6 +77,7 @@ def write_movie(movie):
 	click.echo()
 
 if __name__ == '__main__':
+	# Just an Example
 	location="kota"
 	movie={'critic_rating': u'2.5',
  'lead_cast': [u'Riteish Deshmukh',

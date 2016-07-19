@@ -1,7 +1,5 @@
-from get_data import *
 from bs4 import BeautifulSoup
-from pprint import pprint
-import requests,unicodedata
+import requests
 
 def get_movie_details(movie):
 	url=str(movie['url'])
@@ -33,6 +31,8 @@ def get_movie_details(movie):
 	return movie_detail
 
 if __name__ == '__main__':
+	from pprint import pprint
+	from get_data import get_final_list
 	location="kota"
 	mlist=get_final_list(location)
 	pprint(mlist[0])
