@@ -26,7 +26,12 @@ def write_movie_list(location):
 	movie_list=get_final_list(location)
 	for index,movie in enumerate(movie_list):
 		name=movie['Title'].encode('utf-8')
+		if len(name) > 20:
+			name = name[:20]
 		genres=movie['Genre'].split("|")
+		for i in range(len(genres)):
+			if len(genres[i]) > 10:
+				genres[i] = genres[i][:10]
 		extra=movie['Extra']
 		duration=format(float(float(movie['Duration'])/60),'.2f')+' Hrs'
 		click.echo()
@@ -57,6 +62,8 @@ def write_movie_list(location):
 def write_movie(movie):
 	click.echo()
 	name=movie['name']
+	if len(name) > 20:
+		name = name[:20]
 	critic_rating=movie['critic_rating']
 	cast=movie['lead_cast']
 	synopsis="\033[35m"+movie['synopsis']
